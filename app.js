@@ -60,7 +60,9 @@ io.on('connection', (socket) => {
 
 
 // Starting the server on 5000
-let PORT = 5000
+const PORT = process.env.PORT || 5000;  // Use Render's dynamic port or fallback to 5000
+
+
 server.listen(PORT, () => {
     console.log(`App is running on ${PORT}`)
 
