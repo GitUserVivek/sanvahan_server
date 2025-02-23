@@ -18,13 +18,11 @@ import shipmentTrackingRoutes from "./routes/shipmentTrackingRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import expressOasGenerator from 'express-oas-generator';
 
 // Declarations
 
 const app = express();
 dotenv.config();
-expressOasGenerator.init(app);
 
 // 
 // db connection 
@@ -40,11 +38,6 @@ app.use((req, res, next) => {
     console.log(`📡 API Request: ${req.method} ${req.path}`);
     next();
 });
-// Redirect /docs to /api-docs
-app.use('/docs', (req, res) => {
-    res.redirect('/api-docs');
-});
-
 // Base Route
 app.get("/", (req, res) => {
     res.send("Sanvahan API is Running");
