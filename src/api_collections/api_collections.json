@@ -1,0 +1,661 @@
+{
+	"info": {
+		"_postman_id": "1e9984b0-394a-4d3b-a6de-de1e6d57713b",
+		"name": "Sanvahan API Collection",
+		"description": "API collection for testing all routes related to customer, shipment, bids, truck, driver, etc.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35976221"
+	},
+	"item": [
+		{
+			"name": "Customer Routes",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"phone\": \"1234567890\",\n  \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/customers/{{customer_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"customers",
+								"{{customer_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jane Doe\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/customers/{{customer_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"customers",
+								"{{customer_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/customers/{{customer_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"customers",
+								"{{customer_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Truck Driver Routes",
+			"item": [
+				{
+					"name": "Create Driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"truck_owner_id\": \"60adf81f52a5d72dbdc8b159\",\n    \"name\": \"Jane Doe\",\n    \"phone\": \"9876543210\",\n    \"password\": \"securepassword123\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/drivers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"driver@example.com\",\n    \"password\": \"securepassword123\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/login/driver",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Driver Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {your_jwt_token}"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/drivers/{driverId}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"drivers",
+								"{driverId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Driver Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {your_jwt_token}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"1234567890\",\n    \"name\": \"Jane Smith\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/drivers/{driverId}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"drivers",
+								"{driverId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Driver",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {your_jwt_token}"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/drivers/{driverId}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"drivers",
+								"{driverId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login Routes",
+			"item": [
+				{
+					"name": "Login Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tejas@sanvahan.com\",\n    \"password\": \"tejas\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/login/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login TruckOwner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"truckowner@example.com\",\n    \"password\": \"securepassword123\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/login/truckOwner",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login",
+								"truckOwner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"driver1@sanvahan.com\",\n    \"password\": \"securepassword123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/login/driver",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"login",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ShipmentRequest Routes",
+			"item": [
+				{
+					"name": "Create ShipmentRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": \"{{customer_id}}\",\n    \"from_location\": \"Location A\",\n    \"to_location\": \"Location B\",\n    \"weight\": 150\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/shipmentRequests",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shipmentRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All ShipmentRequests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/shipmentRequests",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shipmentRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ShipmentRequest By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/shipmentRequests/{{shipment_request_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shipmentRequests",
+								"{{shipment_request_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update ShipmentRequest",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"Completed\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/shipmentRequests/{{shipment_request_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shipmentRequests",
+								"{{shipment_request_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ShipmentRequest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/shipmentRequests/{{shipment_request_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"shipmentRequests",
+								"{{shipment_request_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TruckOwner Routes",
+			"item": [
+				{
+					"name": "Create TruckOwner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Truck Owner 1\",\n    \"email\": \"truckowner1@example.com\",\n    \"phone\": \"9876543210\",\n  \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/truckOwners",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"truckOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All TruckOwners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/truckOwners",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"truckOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TruckOwner By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/truckOwners/{{truck_owner_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"truckOwners",
+								"{{truck_owner_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update TruckOwner",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Truck Owner 1 Updated\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/truckOwners/{{truck_owner_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"truckOwners",
+								"{{truck_owner_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TruckOwner",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/truckOwners/{{truck_owner_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"truckOwners",
+								"{{truck_owner_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bid Routes",
+			"item": [
+				{
+					"name": "Create Bid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"truck_owner_id\": \"{{truck_owner_id}}\",\n    \"shipment_id\": \"{{shipment_request_id}}\",\n    \"bid_amount\": 1000\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/bids",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/bids",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bid By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/bids/{{bid_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bid_amount\": 1200\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/bids/{{bid_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/bids/{{bid_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bids",
+								"{{bid_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

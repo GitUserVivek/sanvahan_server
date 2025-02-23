@@ -1,0 +1,44 @@
+{
+  "info": {
+    "_postman_id": "abcd-1234-efgh-5678",
+    "name": "Sanvahan API Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"John Doe\", \"email\": \"john@example.com\", \"phone\": \"9876543210\" }"
+        },
+        "url": { "raw": "http://localhost:5000/customers", "host": ["http://localhost:5000"], "path": ["customers"] }
+      }
+    },
+    {
+      "name": "Create Shipment Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"customer_id\": \"CUSTOMER_ID_HERE\", \"from_location\": \"Mumbai\", \"to_location\": \"Delhi\", \"weight\": 500 }"
+        },
+        "url": { "raw": "http://localhost:5000/shipments", "host": ["http://localhost:5000"], "path": ["shipments"] }
+      }
+    },
+    {
+      "name": "Get All Shipment Requests",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/shipments", "host": ["http://localhost:5000"], "path": ["shipments"] }
+      }
+    }
+  ]
+}
